@@ -1,61 +1,106 @@
+# WorkAI Backend Engineering Assessment
 
-# Backend Engineering Assessment Starter
+This repository contains the completed solution for the WorkAI backend engineering assessment. It implements two independent services within a mono-repo structure:
 
-This repository is a standalone starter for the backend engineering take-home assessment.
-It contains two independent services in a shared mono-repo:
+- **InsightOps (Python Service)**: A FastAPI-based service for generating investment briefing reports.
+- **TalentFlow (TypeScript Service)**: A NestJS-based service for candidate document processing and AI summarization.
 
-- `python-service/` (InsightOps): FastAPI + SQLAlchemy + manual SQL migrations
-- `ts-service/` (TalentFlow): NestJS + TypeORM
+## 🚀 Features Implemented
 
-The repository is intentionally incomplete for assessment features. Candidates should build within the existing structure and patterns.
+### 🐍 Python Service (InsightOps)
+- **Briefing Management**: Complete CRUD operations for investment briefings.
+- **Report Generation**: Professional HTML report generation using Jinja2 templates.
+- **Data Modeling**: Normalized PostgreSQL schema with SQLAlchemy ORM.
+- **Validation**: Strict data validation using Pydantic models.
+- **Testing**: Comprehensive test suite using Pytest.
 
-## Submission Details
+### 🔷 TypeScript Service (TalentFlow)
+- **Candidate Management**: Unified RESTful API for creating and listing candidates (`/candidates`).
+- **Document Processing**: Secure document upload and storage metadata management.
+- **AI Integration**: Asynchronous candidate summarization using Gemini API (with fallback).
+- **Queue System**: Robust job queue for background processing of summaries.
+- **Architecture**: Modular NestJS design with TypeORM and Repository pattern.
 
-- **Public GitHub Repository**: [Link to your public GitHub repository here]
+## 🛠️ Prerequisites
 
-## Prerequisites
+- **Docker**: For running the PostgreSQL database.
+- **Python 3.12+**: For the InsightOps service.
+- **Node.js 22+**: For the TalentFlow service.
 
-- Docker
-- Python 3.12
-- Node.js 22+
-- npm
+## 🏁 Quick Start Guide
 
-## Start Postgres
-
-From the repository root:
+### 1. Start the Database
+The services share a PostgreSQL instance running in Docker.
 
 ```bash
 docker compose up -d postgres
 ```
 
-This starts PostgreSQL on `localhost:5432` with:
+### 2. Python Service (InsightOps) setup
+Open a terminal in `python-service/`:
 
-- database: `assessment_db`
-- user: `assessment_user`
-- password: `assessment_pass`
+```bash
+cd python-service
+# Setup environment
+cp .env.example .env
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 
-## Service Guides
+# Run migrations
+python -m app.db.run_migrations up
 
-For detailed setup, running instructions, migrations, and tests, please refer to the individual service READMEs:
+# Start server
+python -m uvicorn app.main:app --reload --port 8000
+```
+- **API Docs**: http://localhost:8000/docs
+- **Run Tests**: `pytest`
 
-- **Python Service**: [python-service/README.md](python-service/README.md)
-  - Setup & Run
-  - Database Migrations
-  - Running Tests (`pytest`)
-- **TypeScript Service**: [ts-service/README.md](ts-service/README.md)
-  - Setup & Run
-  - Database Migrations (`npm run migration:run`)
-  - Running Tests (`npm test`)
+### 3. TypeScript Service (TalentFlow) setup
+Open a terminal in `ts-service/`:
 
-## Implementation Notes
+```bash
+cd ts-service
+# Setup environment
+cp .env.example .env
+npm install
 
-A summary of design decisions, schema choices, and future improvements can be found in [NOTES.md](NOTES.md).
+# Run migrations
+npm run migration:run
 
-Detailed implementation notes for each service are available at:
-- [ts-service/NOTES.md](ts-service/NOTES.md)
-- [python-service/NOTES.md](python-service/NOTES.md)
+# Start server
+npm run start:dev
+```
+- **API Docs**: http://localhost:3000/api
+- **Run Tests**: `npm test`
 
-## Notes
+## 🧪 Testing with Postman
 
-- Keep your solution focused on the assessment tasks.
-- Do not replace the project structure with a different architecture.
+### InsightOps (Python)
+- **Create Briefing**: `POST /briefings`
+- **Generate Report**: `POST /briefings/{id}/generate`
+- **View HTML**: `GET /briefings/{id}/html`
+
+### TalentFlow (TypeScript)
+> **Note**: Requires headers `x-user-id: user123` and `x-workspace-id: workspace123`
+- **Create Candidate**: `POST /candidates`
+- **Upload Document**: `POST /candidates/{id}/documents`
+- **Generate Summary**: `POST /candidates/{id}/summaries/generate`
+
+## 📁 Project Structure
+
+```
+.
+├── python-service/       # InsightOps Service (FastAPI)
+│   ├── app/              # Application source code
+│   ├── db/               # Database migrations & config
+│   └── tests/            # Pytest suite
+├── ts-service/           # TalentFlow Service (NestJS)
+│   ├── src/              # Source code (Candidates, LLM, Queue)
+│   └── test/             # E2E tests
+└── docker-compose.yml    # Shared infrastructure
+```
+
+## 📝 Implementation Notes
+
+Detailed notes on design decisions and architecture can be found in [NOTES.md](NOTES.md).

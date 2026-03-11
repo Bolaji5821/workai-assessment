@@ -2,33 +2,33 @@
 
 FastAPI service implementing a **Mini Briefing Report Generator** for internal investment briefings. This service provides a complete backend solution for creating, managing, and generating professional HTML reports for company analysis briefings.
 
-## Assessment Completion Status: ✅ **COMPLETE**
+## Assessment Completion Status:  **COMPLETE**
 
-### ✅ All Assessment Requirements Met:
+###  All Assessment Requirements Met:
 - **Store briefings**: Complete database persistence with relational modeling
 - **Validate content**: Comprehensive Pydantic validation with field constraints  
 - **Generate reports**: Professional HTML report generation with Jinja2 templates
 - **Server-side rendering**: No frontend frameworks, pure backend HTML generation
 
-### ✅ Required API Endpoints:
+###  Required API Endpoints:
 - `POST /briefings` - Create new briefing with structured data
 - `GET /briefings/{id}` - Retrieve complete briefing data
 - `POST /briefings/{id}/generate` - Generate and mark report as generated
 - `GET /briefings/{id}/html` - Get professional HTML report
 
-### ✅ Bonus Features Added:
+###  Bonus Features Added:
 - `PUT /briefings/{id}` - Update existing briefings (partial updates supported)
 - `DELETE /briefings/{id}` - Delete briefings with success confirmation
 
 ## Features
 
-- ✅ **Complete CRUD Operations**: Create, read, update, and delete briefing records
-- ✅ **Professional HTML Reports**: Server-side rendered reports using Jinja2 templates
-- ✅ **Relational Data Modeling**: Normalized database design with proper relationships
-- ✅ **Comprehensive Validation**: Pydantic schemas with field-level validation
-- ✅ **Service Layer Architecture**: Clean separation of concerns
-- ✅ **Professional Styling**: Modern CSS with responsive design
-- ✅ **RESTful API Design**: Proper HTTP status codes and error handling
+-  **Complete CRUD Operations**: Create, read, update, and delete briefing records
+-  **Professional HTML Reports**: Server-side rendered reports using Jinja2 templates
+-  **Relational Data Modeling**: Normalized database design with proper relationships
+-  **Comprehensive Validation**: Pydantic schemas with field-level validation
+-  **Service Layer Architecture**: Clean separation of concerns
+-  **Professional Styling**: Modern CSS with responsive design
+-  **RESTful API Design**: Proper HTTP status codes and error handling
 
 ## Quick Start
 
