@@ -16,7 +16,6 @@ This repository contains the completed solution for the WorkAI backend engineeri
 
 ### TypeScript Service (TalentFlow)
 - **Candidate Management**: Unified RESTful API for creating and listing candidates (`/candidates`).
-- **Document Processing**: Secure document upload and storage metadata management.
 - **AI Integration**: Asynchronous candidate summarization using Gemini API (with fallback).
 - **Queue System**: Robust job queue for background processing of summaries.
 - **Architecture**: Modular NestJS design with TypeORM and Repository pattern.

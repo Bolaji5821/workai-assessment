@@ -34,7 +34,7 @@ Validation           Provider Abstraction  Entities       Migrations
 **Queue/Worker Pattern**
 - **In-Memory Queue**: Simple implementation for assessment purposes
 - **Worker Service**: Background processing with status updates
-- **Status Transitions**: Pending → Processing → Completed/Failed
+- **Status Transitions**: Pending → Completed/Failed
 - **Error Handling**: Comprehensive error logging and status updates
 - **Scalability**: Architecture supports Redis/RabbitMQ integration
 

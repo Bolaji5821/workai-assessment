@@ -37,7 +37,7 @@ This NestJS service implements a **Candidate Document Intake and Summary Workflo
 ### Technical Architecture ✅
 - **Provider Abstraction**: `SummarizationProvider` interface with Gemini implementation
 - **Queue Pattern**: In-memory queue with worker processing
-- **Status Management**: Pending → Processing → Completed/Failed transitions
+- **Status Management**: Pending → Completed/Failed transitions
 - **Error Handling**: Comprehensive error handling and logging
 
 ## Setup Instructions
@@ -207,7 +207,7 @@ curl http://localhost:3000/candidates/[CANDIDATE_ID]/summaries \
 ### Queue/Worker Pattern
 - **In-Memory Queue**: Simple queue service for assessment purposes
 - **Worker Service**: Background processing with status updates
-- **Status Transitions**: Pending → Processing → Completed/Failed
+- **Status Transitions**: Pending → Completed/Failed
 - **Error Handling**: Comprehensive error logging and status updates
 
 ### LLM Provider Abstraction
