@@ -58,7 +58,6 @@ python -m app.db.run_migrations up
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
-Visit: http://127.0.0.1:8000/docs for interactive Swagger documentation
 
 ### 5. Run Tests
 ```bash
@@ -134,14 +133,6 @@ curl http://127.0.0.1:8000/briefings/1/html > report.html
 python -m pytest
 ```
 
-### Quick Validation
-```bash
-# Test health endpoint
-curl http://127.0.0.1:8000/health
-
-# Test interactive docs
-curl http://127.0.0.1:8000/docs
-```
 
 ## Project Structure
 

@@ -5,23 +5,23 @@ This repository contains the completed solution for the WorkAI backend engineeri
 - **InsightOps (Python Service)**: A FastAPI-based service for generating investment briefing reports.
 - **TalentFlow (TypeScript Service)**: A NestJS-based service for candidate document processing and AI summarization.
 
-## 🚀 Features Implemented
+##  Features Implemented
 
-### 🐍 Python Service (InsightOps)
+###  Python Service (InsightOps)
 - **Briefing Management**: Complete CRUD operations for investment briefings.
 - **Report Generation**: Professional HTML report generation using Jinja2 templates.
 - **Data Modeling**: Normalized PostgreSQL schema with SQLAlchemy ORM.
 - **Validation**: Strict data validation using Pydantic models.
 - **Testing**: Comprehensive test suite using Pytest.
 
-### 🔷 TypeScript Service (TalentFlow)
+### TypeScript Service (TalentFlow)
 - **Candidate Management**: Unified RESTful API for creating and listing candidates (`/candidates`).
 - **Document Processing**: Secure document upload and storage metadata management.
 - **AI Integration**: Asynchronous candidate summarization using Gemini API (with fallback).
 - **Queue System**: Robust job queue for background processing of summaries.
 - **Architecture**: Modular NestJS design with TypeORM and Repository pattern.
 
-## 🛠️ Prerequisites
+##  Prerequisites
 
 - **Docker**: For running the PostgreSQL database.
 - **Python 3.12+**: For the InsightOps service.
@@ -71,10 +71,10 @@ npm run migration:run
 # Start server
 npm run start:dev
 ```
-- **API Docs**: http://localhost:3000/api
+
 - **Run Tests**: `npm test`
 
-## 🧪 Testing with Postman
+##  Testing with Postman
 
 ### InsightOps (Python)
 - **Create Briefing**: `POST /briefings`
@@ -87,7 +87,7 @@ npm run start:dev
 - **Upload Document**: `POST /candidates/{id}/documents`
 - **Generate Summary**: `POST /candidates/{id}/summaries/generate`
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 .
@@ -101,6 +101,6 @@ npm run start:dev
 └── docker-compose.yml    # Shared infrastructure
 ```
 
-## 📝 Implementation Notes
+##  Implementation Notes
 
 Detailed notes on design decisions and architecture can be found in [NOTES.md](NOTES.md).
